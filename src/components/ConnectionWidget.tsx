@@ -69,6 +69,7 @@ export default function ConnectionsAuthWidget() {
       window.removeEventListener(WIDGET_EVENTS.SHOW_LEADERBOARD, handleShowLeaderboard as EventListener);
       window.removeEventListener(WIDGET_EVENTS.SUBMIT_SCORE, handleSubmitScore as unknown as EventListener);
       window.removeEventListener(WIDGET_EVENTS.FETCH_LEADERBOARD, handleFetchLeaderboard as unknown as EventListener);
+      window.removeEventListener(WIDGET_EVENTS.FETCH_COMPLETED_GAMES, handleFetchCompletedGames as unknown as EventListener);
     };
   }, [user, submitScore, fetchLeaderboardForDate, fetchCompletedGames]);
 
