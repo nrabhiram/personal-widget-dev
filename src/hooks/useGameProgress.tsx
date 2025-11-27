@@ -10,6 +10,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 import { GameName, GAME_CONFIGS } from '@/config/games';
+import { GAME_EVENTS } from '@/utils';
 
 export const useGameProgress = () => {
   const [completedGames, setCompletedGames] = useState<string[]>([]);
@@ -26,6 +27,11 @@ export const useGameProgress = () => {
       // For guests, use localStorage
       const guestGames = localStorage.getItem(storageKey);
       setCompletedGames(guestGames ? JSON.parse(guestGames) : []);
+      window.dispatchEvent(
+        new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+          detail: { completedGames: guestGames }
+        })
+      );
       setInitialized(true);
       return;
     }
@@ -38,8 +44,18 @@ export const useGameProgress = () => {
       if (docSnap.exists()) {
         const data = docSnap.data();
         setCompletedGames(data.completedGames || []);
+        window.dispatchEvent(
+          new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+            detail: { completedGames: data.completedGames || [] }
+          })
+        );
       } else {
         setCompletedGames([]);
+        window.dispatchEvent(
+          new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+            detail: { completedGames: [] }
+          })
+        );
       }
       setInitialized(true);
     } catch (error) {
@@ -65,6 +81,11 @@ export const useGameProgress = () => {
       if (!games.includes(gameDate)) {
         games.push(gameDate);
         localStorage.setItem(storageKey, JSON.stringify(games));
+        window.dispatchEvent(
+          new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+            detail: { completedGames: games }
+          })
+        );
         setCompletedGames(games);
       }
       return;
@@ -88,6 +109,12 @@ export const useGameProgress = () => {
           lastUpdated: Timestamp.now()
         });
       }
+
+      window.dispatchEvent(
+        new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+          detail: { completedGames: [...completedGames, gameDate] }
+        })
+      );
       
       // Update local state
       setCompletedGames(prev => 

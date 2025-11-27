@@ -80,15 +80,15 @@ export default function ConnectionsAuthWidget() {
   //   }
   // }, [user, loading, fetchCompletedGames]);
 
-  useEffect(() => {
-    if (initialized) {
-      window.dispatchEvent(
-        new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
-          detail: { completedGames }
-        })
-      );
-    }
-  }, [completedGames, initialized]);
+  // useEffect(() => {
+  //   if (initialized) {
+  //     window.dispatchEvent(
+  //       new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
+  //         detail: { completedGames }
+  //       })
+  //     );
+  //   }
+  // }, [completedGames, initialized]);
 
   useEffect(() => {
     const handleGameCompleted = async (event: CustomEvent) => {
