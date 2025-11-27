@@ -51,8 +51,8 @@ export default function ConnectionsAuthWidget() {
     };
 
     const handleFetchCompletedGames = async (event: CustomEvent) => {
-      const { gameName } = event.detail;
-      const userId = user ? user.uid : 'guest';
+      const { gameName, userId } = event.detail;
+      // const userId = user ? user.uid : 'guest';
       console.log("DEBUG FETCH GAMES", userId);
       await fetchCompletedGames(userId, gameName);
     }
