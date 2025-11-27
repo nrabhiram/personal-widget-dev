@@ -1,0 +1,35 @@
+{
+  "name": "login-widget",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build:widget": "node scripts/build-widget.js",
+    "build:next": "next build",
+    "build": "yarn build:widget && yarn build:next",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "firebase": "^12.1.0",
+    "lucide-react": "^0.344.0",
+    "next": "15.5.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.10",
+    "esbuild-postcss": "^0.0.4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "3",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/styles/globals.css"],
+  "sourcesContent": ["@tailwind components;\n@tailwind utilities;\n\n#my-widget {\n  font-family: Arial, Helvetica, sans-serif;\n  box-sizing: border-box;\n}\n\n#my-widget *,\n#my-widget *::before,\n#my-widget *::after {\n  box-sizing: border-box;\n}\n"],
+  "mappings": "AAAA,UAAU,WACV,UAAU,UAEV,CAAC,UACC,YAAa,KAAK,CAAE,SAAS,CAAE,WAC/B,WAAY,UACd,CAEA,CALC,UAKU,EACX,CANC,UAMU,CAAC,QACZ,CAPC,UAOU,CAAC,OACV,WAAY,UACd",
+  "names": []
+}

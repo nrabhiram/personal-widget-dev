@@ -1,0 +1,13 @@
+@tailwind components;
+@tailwind utilities;
+
+#my-widget {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+#my-widget *,
+#my-widget *::before,
+#my-widget *::after {
+  box-sizing: border-box;
+}
