@@ -123,7 +123,7 @@ export const useGameProgress = () => {
     } catch (error) {
       console.error('Error marking game as completed:', error);
     }
-  }, []);
+  }, [completedGames]);
 
   const isGameCompleted = useCallback((gameDate: string) => {
     return completedGames.includes(gameDate);
