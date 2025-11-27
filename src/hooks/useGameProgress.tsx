@@ -29,7 +29,7 @@ export const useGameProgress = () => {
       setCompletedGames(guestGames ? JSON.parse(guestGames) : []);
       window.dispatchEvent(
         new CustomEvent(GAME_EVENTS.COMPLETED_GAMES_UPDATED, {
-          detail: { completedGames: guestGames }
+          detail: { completedGames: guestGames ? JSON.parse(guestGames) : [] }
         })
       );
       setInitialized(true);
