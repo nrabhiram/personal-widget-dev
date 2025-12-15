@@ -62,6 +62,10 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
     );
   }, []);
 
+  React.useEffect(() => {
+    console.log("DEBUG DATE", currentPuzzleDate);
+  }, [currentPuzzleDate]);
+
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
